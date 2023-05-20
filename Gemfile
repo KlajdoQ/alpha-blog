@@ -72,4 +72,5 @@ group :test do
 end
 
 gem "hotwire-rails", "~> 0.1.3"
-gem 'bootstrap', '~> 5.0.0'
+gem 'bootstrap', '~> 5.2', '>= 5.2.3'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
