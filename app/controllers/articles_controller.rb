@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController 
 before_action :set_article, only:[:show, :edit, :update, :destroy]
+#before_action :require_user, except: [:show, :index] #you have to be logged in to create a new article
+# before_action :require_same_user, except: [:edit, :update, :destroy] 
+    
     def show
     end
     
@@ -19,7 +22,7 @@ before_action :set_article, only:[:show, :edit, :update, :destroy]
             flash[:notice] = "Article was successfully created"
             redirect_to @article
         else 
-            render "new"
+            render "new", status: :unprocessable_entity 
         end
     end
 
@@ -49,4 +52,11 @@ before_action :set_article, only:[:show, :edit, :update, :destroy]
     def article_params
         params.require(:article).permit(:title, :description)
     end
+
+    # def require_same_user 
+    #     if current_user != @article.user
+    #         flash[:alert] = "You can only edit or delete your article"
+    #         redirect_to @article
+    #     end
+    # end
 end

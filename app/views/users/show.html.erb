@@ -2,6 +2,7 @@
 
 <%= gravatar_for @user, size: 200%> <br>
 <%= link_to 'Logout', logout_path, data:{"turbo-method": :delete}%>
+<%= link_to 'Delete Profile', user_path(current_user), data:{"turbo-method": :delete} %>
 
 <h3><%= @user.username%>'s profile</h3>
 

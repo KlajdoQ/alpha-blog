@@ -5,6 +5,8 @@
 by <%=@article.user.username if @article.user%> <br><br>
 <%= link_to gravatar_for(@article.user), user_path(@article.user)%>
 
-<%= link_to 'Edit', edit_article_path(@article)%> |
-<%= link_to 'Delete', article_path(@article), data:{"turbo-method": :delete}%> | 
-<%= link_to 'Return to articles listing', articles_path%>
+<%if logged_in? && @article.user == current_user%>
+    <%= link_to 'Edit', edit_article_path(@article)%> |
+    <%= link_to 'Delete', article_path(@article), data:{"turbo-method": :delete}%> | 
+<%end%>
+    <%= link_to 'Return to articles listing', articles_path%>

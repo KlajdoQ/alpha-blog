@@ -16,9 +16,11 @@
             <td><%= user.email%>  </td>
             <td><%= pluralize(user.articles.count, "article")%>  </td>
             <td><%=link_to "Show", user_path(user) %></td>
-            <td><%=link_to "Edit Profile", edit_user_path(user) %></td>
-            <td><%=link_to 'Delete', user_path(user), data:{"turbo-method": :delete}%>  </td>  
-        </tr>
+            <%if logged_in? && user == current_user%>
+                <td><%=link_to "Edit Profile", edit_user_path(user) %></td>
+                <td><%=link_to 'Delete', user_path(user), data:{"turbo-method": :delete}%>  </td>  
+             <%end%>
+       </tr>
         <%end%>
     </tbody>
 </table>
