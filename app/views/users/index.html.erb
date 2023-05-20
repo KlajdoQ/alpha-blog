@@ -1,0 +1,28 @@
+<h1>Alpha Blogers</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Email</th>
+            <th colspan='3'>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |user|%>
+       
+        <tr>
+            <td><%= link_to user.username, user%></td>
+            <td><%= user.email%>  </td>
+            <td><%= pluralize(user.articles.count, "article")%>  </td>
+            <td><%=link_to "Show", user_path(user) %></td>
+            <td><%=link_to "Edit Profile", edit_user_path(user) %></td>
+            <td><%=link_to 'Delete', user_path(user), data:{"turbo-method": :delete}%>  </td>  
+        </tr>
+        <%end%>
+    </tbody>
+</table>
+
+<p>
+    <%= link_to 'Create new article', new_article_path%>
+</p>
