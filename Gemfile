@@ -72,3 +72,4 @@ group :test do
 end
 
 gem "hotwire-rails", "~> 0.1.3"
+gem 'bootstrap', '~> 5.0.0'
