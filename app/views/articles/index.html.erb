@@ -1,12 +1,14 @@
-<h1>Articles Listing Page</h1>
+<div class="body">
+  <h1>Articles Listing Page</h1>
 
-<div class="apple_pagination">
-    <%= will_paginate @articles, :container => false %>
-  </div>
+  <div class="apple_pagination">
+      <%= will_paginate @articles, :container => false %>
+    </div>
 
 
-<%= render 'article'%>
+  <%= render 'article'%>
 
-<div class="apple_pagination">
-    <%= will_paginate @articles, :container => false %>
-  </div>
+  <div class="apple_pagination">
+      <%= will_paginate @articles, :container => false %>
+    </div>
+</div>

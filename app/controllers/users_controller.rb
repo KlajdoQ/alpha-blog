@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     def destroy
         @user=User.find(params[:id])
         @user.destroy
-        session[:user_id] = nil
+        session[:user_id] = nil if @user == current_user
         flash[:notice] = "User deleted successfully"
         redirect_to articles_path
     end

@@ -2,7 +2,7 @@
 
 <p><strong>Title: </strong><%= @article.title %></p>
 <p><strong>Description:</strong><%= @article.description %></p>
-by <%=@article.user.username if @article.user%> <br><br>
+by <%= "(Admin)" if current_user.admin?%> <%=@article.user.username if @article.user %> <br><br>
 <%= link_to gravatar_for(@article.user), user_path(@article.user)%>
 
 <%if logged_in? && @article.user == current_user%>
